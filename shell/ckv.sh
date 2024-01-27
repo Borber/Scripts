@@ -54,5 +54,5 @@ fi
 if [ ! $v ] ; then
     curl -X GET "https://api.cloudflare.com/client/v4/accounts/$account_id/storage/kv/namespaces/$namespace_id/values/$k" -H "Authorization: Bearer $access_token" -H "Content-Type:application/json" 2>/dev/null
 else
-    curl -X PUT "https://api.cloudflare.com/client/v4/accounts/$account_id/storage/kv/namespaces/$namespace_id/values/$k" -H 'Authorization: Bearer $access_token' -H 'Content-Type: multipart/form-data' --form metadata= --form value=$v 2>/dev/null
+    curl -X PUT "https://api.cloudflare.com/client/v4/accounts/$account_id/storage/kv/namespaces/$namespace_id/values/$k" -H "Authorization: Bearer $access_token" -H 'Content-Type: multipart/form-data' --form metadata={} --form value=$v 2>/dev/null
 fi
